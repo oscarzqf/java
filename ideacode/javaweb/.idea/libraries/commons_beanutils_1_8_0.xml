@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-beanutils-1.8.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../javaweb/资料/05-XML &amp; Tomcat/笔记/JavaWeb需要用到的jar包/commons-beanutils-1.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

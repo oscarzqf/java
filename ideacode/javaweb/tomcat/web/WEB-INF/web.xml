@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--通过继承Servlet实现Servlet程序-->
+    <!--servlet标签给Tomcat配置servlet程序-->
+    <servlet>
+        <!--servlet-name 标签给servlet程序起一个别名（一般为类名）-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--servlet-class是servlet程序的全类名-->
+        <servlet-class>com.zqf.servelet.HelloServlet</servlet-class>
+
+
+        <!--init-param是初始化参数-->
+        <init-param>
+            <!--是参数名-->
+            <param-name>username</param-name>
+            <!--是参数值-->
+            <param-value>root</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/test</param-value>
+        </init-param>
+
+
+
+    </servlet>
+
+
+    <!--servlet-mapping给servlet程序配置访问地址-->
+    <servlet-mapping>
+        <!--servlet-name标签作用是告诉服务器，当前配置的地址是给哪一个servlet程序-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--url-pattern标签配置访问地址
+            / 斜杠在服务器解析的时候，表示地址为：http://ip:port/工程路径
+            /hello  表示地址为：http://ip:port/工程路径/hello
+            也可以取其他名字,尽量与类名对应，路径下无需有文件，一定要
+            有 / 否则报错
+        -->
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <!--使用继承HttpServlet类的方式去实现Servlet程序-->
+    <servlet>
+        <servlet-name>HelloServletNext</servlet-name>
+        <servlet-class>com.zqf.servelet.HelloServletNext</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServletNext</servlet-name>
+        <url-pattern>/hellonext</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>HelloServlet3</servlet-name>
+        <servlet-class>com.zqf.servelet.HelloServlet3</servlet-class>
+    </servlet>
+    <!--context-param是上下文参数，属于整个web工程,可以配置多组-->
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>123</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>ContextServlet</servlet-name>
+        <servlet-class>com.zqf.servelet.ContextServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RequestAPIServlet</servlet-name>
+        <servlet-class>com.zqf.servelet.RequestAPIServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ParameterServlet</servlet-name>
+        <servlet-class>com.zqf.servelet.ParameterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ParameterServlet</servlet-name>
+        <url-pattern>/parameterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestAPIServlet</servlet-name>
+        <url-pattern>/requestapiservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContextServlet</servlet-name>
+        <url-pattern>/hello4</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloServlet3</servlet-name>
+        <url-pattern>/hello3</url-pattern>
+    </servlet-mapping>
+</web-app>
